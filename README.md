@@ -12,3 +12,6 @@ Shift + 3 um das Stack abzuspielen.
 Shift + 4 um den Vorgang zu stoppen.
 
 Resetten kann man seinen Stack über den Button im GUI oder mit Shift + 5.
+
+Für den Fall, dass jemand einen größeren Stack braucht, muss einfach nur das Stack-Array und Index-Array vergrößert werden.
+Ein 100er Stack reicht für die meisten Anwendungsfälle.
