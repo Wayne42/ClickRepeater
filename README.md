@@ -11,4 +11,4 @@ Shift + 3 um das Stack abzuspielen.
 
 Shift + 4 um den Vorgang zu stoppen.
 
-Resetten kann man seinen Stack über den Button im GUI.
+Resetten kann man seinen Stack über den Button im GUI oder mit Shift + 5.
