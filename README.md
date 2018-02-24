@@ -1,17 +1,16 @@
 # ClickRepeater
-Ein simpler "Click Repeater" geschrieben in der Skriptsprache AutoIt
+A simple "ClickRepeater" written in the script language AutoIt.
 
-Im Grunde ist es ein erweiterter "Auto Klicker". Man speichert eine beliebige Menge an Mausklicks an beliebigen Positionen in einem Stack, welcher dann so oft man will abgespielt wird. Die Pausen zwischen den Wiederholungen und Klicks kann man im GUI einstellen. Dort sieht man auch neben dem erstellten Stack und weitere Anzeigen die nötigen Tastenkombinationen und Instruktionen. 
+Basically it's an "Auto Clicker" with more functions. You registers mouse clicks (left or right) as you like on any location on your screen in your order of execution. 
 
-Shift + 1 um ein Linksklick-Befehl auf der momentanen Mausposition zu speichern.
+SHIFT + 1 to register a left click on your current cursor position.
 
-Shift + 2 um ein Rechtsklick-Befehl auf der momentanen Mausposition zu speichern.
+SHIFT + 2 to register a right click on your current cursor position.
 
-Shift + 3 um das Stack abzuspielen.
+SHIFT + 3 to play the stack you created.
 
-Shift + 4 um den Vorgang zu stoppen.
+SHIFT + 4 to stop your stack.
 
-Resetten kann man seinen Stack über den Button im GUI oder mit Shift + 5.
+You can resett your stack with the reset button in the GUI or with SHIFT + 5.
 
-Für den Fall, dass jemand einen größeren Stack braucht, muss einfach nur das Stack-Array und Index-Array vergrößert werden.
-Ein 100er Stack reicht für die meisten Anwendungsfälle.
+If you need more than 100 clicks saved in your stack, all you have to do is increase the array size of the stack and index pointer in the source code.
