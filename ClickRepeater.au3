@@ -41,13 +41,13 @@ EndFunc
 
 
 
-; GUI initializatino
+; GUI CODE
 
 $meinGui =  GUICreate("Click Repeater (Stack)", 700, 500)
 GUISetBkColor(0xAAAAAA)
 
 ; Left side
-$statusLabel = GUICtrlCreateLabel("Statuszeile:", 10, 10, 390, 20)
+$statusLabel = GUICtrlCreateLabel("status information:", 10, 10, 390, 20)
 GUICtrlSetBkColor($statusLabel, 0x00AAFF)
 GUICtrlSetColor($statusLabel, 0x000000)
 
@@ -63,8 +63,8 @@ $s2 = GUICtrlCreateLabel("Shift + 2 to register right click on current mouse pos
 $s3 = GUICtrlCreateLabel("Shift + 3 to play the stack. ", 10, 340, 390)
 $s4 = GUICtrlCreateLabel("Shift + 4 to stop the stack. ", 10, 360, 390)
 $s5 = GUICtrlCreateLabel("You can safe up to 100 clicks in the stack.", 10, 380, 390)
-$s6 = GUICtrlCreateLabel("PC option activates PixelChecksum and checks for", 10, 400, 390)
-$s7 = GUICtrlCreateLabel("different pixels on click position since your safe. If pixels changed->No click! ", 10, 420, 390)
+$s6 = GUICtrlCreateLabel("PC option activates PixelChecksum and checks for different pixels", 10, 400, 390)
+$s7 = GUICtrlCreateLabel("on click position since you safed your click. If pixels changed->No click! ", 10, 420, 390)
 GUICtrlSetBkColor($s1, 0xFFFFFF)
 GUICtrlSetBkColor($s2, 0xFFFFFF)
 GUICtrlSetBkColor($s3, 0xFFFFFF)
@@ -124,13 +124,13 @@ GUICtrlSetOnEvent($resetButton, "resetStack")
 
 Func resetStack()
     SetStatus("Reset started")
-    
+
     While $index > 0
         GuiCtrlDelete($labelStack[$index])
         $index = $index - 1
 	GuiCtrlDelete($labelStack[$index])
     WEnd
-    
+
     $pos1 = 420
     $pos2 = 50
     GuiCtrlSetState($checker, $GUI_ENABLE)
@@ -143,7 +143,7 @@ Global $pos2 = 40
 Global $labelStack[100]
 Global $idListview = GUICtrlCreateListView("X Coord | Y Coord | Click  ", $pos1, $pos2, 240, 402)
 
-$lab = GUICtrlCreateLabel("Your stack:", $pos1, 10, 240)
+$lab = GUICtrlCreateLabel("your stack:", $pos1, 10, 240)
 GUICtrlSetBkColor($lab, 0x00AAFF)
 GUICtrlSetColor($lab, 0x000000)
 
@@ -171,14 +171,14 @@ Func addLeft()
         pixelCheck()
 	$enableChecker = false
     EndIf
-    
+
     GuiCtrlSetState($checker, $GUI_DISABLE)
     Sleep(100)
 
     Local $internalArray[3] = [$x, $y, 0]
     $stack[$index] = $internalArray
 
-    $labelStack[$index] = GUICtrlCreateListViewItem($internalArray[0] & "|" & $internalArray[1] & "|Links"  , $idListview)
+    $labelStack[$index] = GUICtrlCreateListViewItem($internalArray[0] & "|" & $internalArray[1] & "|left"  , $idListview)
     $index = $index +1
     SetStatus("X Position " & $internalArray[0] & " Y Position "  & $internalArray[1] & " left click")
 
@@ -201,7 +201,7 @@ Func addRight()
         pixelCheck()
         $enableChecker = false
     EndIf
-    
+
     GuiCtrlSetState($checker, $GUI_DISABLE)
     Sleep(100)
     Local $internalArray[3] = [$x, $y, 1]
@@ -228,9 +228,9 @@ Func repeat()
     $bis = GUICtrlRead($wieOft)
 
     While $von < $bis AND $pause
-    
+
         _GUICtrlListView_Scroll($idListview, 0, -2000)
-    
+
         While $hilfeRepeat < $index AND $pause
 
 	    if GUICtrlRead($checker) = $GUI_CHECKED then
@@ -281,11 +281,11 @@ Func repeat()
     WEnd
 
     GUICtrlSetBkColor($s3, 0xFFFFFF)
-       
+
     if $enableChecker then
         GuiCtrlSetState($checker, $GUI_ENABLE)
     EndIf
-       
-    SetStatus("Fertig!")
+
+    SetStatus("Done!")
 
 EndFunc
