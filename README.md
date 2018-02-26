@@ -1,5 +1,6 @@
 # ClickRepeater
 A simple "ClickRepeater" written in the script language AutoIt.
+https://www.autoitscript.com/site/autoit/
 
 Basically it's an "Auto Clicker" with more functions. You registers mouse clicks (left or right) as you like on any location on your screen in your order of execution. 
 
