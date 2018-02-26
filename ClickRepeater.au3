@@ -10,7 +10,7 @@ Opt("GUIOnEventMode" , 1)
 
 
 ; Add hotkeys
-HotKeySet("+1", "addLinks")
+HotKeySet("+1", "addLeft")
 HotKeySet("+2", "addRight")
 HotKeySet("+3", "repeat")
 HotKeySet("+4", "Pause")
@@ -51,20 +51,20 @@ $statusLabel = GUICtrlCreateLabel("Statuszeile:", 10, 10, 390, 20)
 GUICtrlSetBkColor($statusLabel, 0x00AAFF)
 GUICtrlSetColor($statusLabel, 0x000000)
 
-Global $ctrl_status = GuiCtrlCreateInput("Instruktionen siehe unten!", 10, 40,390, 30)
+Global $ctrl_status = GuiCtrlCreateInput("Instructions see below!", 10, 40,390, 30)
 GUICtrlSetBkColor($ctrl_status, 0x777777)
 GUICtrlSetColor($ctrl_status, 0xFFFFFF)
 
 ; Right side
-$red = GUICtrlCreateLabel("Kontrolltasten: ", 10, 280, 390)
+$red = GUICtrlCreateLabel("Control Keys: ", 10, 280, 390)
 GUICtrlSetBkColor($red, 0x00EEFF)
-$s1 = GUICtrlCreateLabel("Shift + 1 um Linksklick auf momentaner Mausposition zu registrieren! ", 10, 300, 390)
-$s2 = GUICtrlCreateLabel("Shift + 2 um Rechtsklick auf momentaner Mausposition zu registrieren! ", 10, 320, 390)
-$s3 = GUICtrlCreateLabel("Shift + 3 um den Stack abzuspielen. ", 10, 340, 390)
-$s4 = GUICtrlCreateLabel("Shift + 4 um den Stack abzubrechen. ", 10, 360, 390)
-$s5 = GUICtrlCreateLabel("Momentan sind bis zu 100 Klicks speicherbar!", 10, 380, 390)
-$s6 = GUICtrlCreateLabel("Mit der PC Option kann man vor dem Klick durch PixelChecksum", 10, 400, 390)
-$s7 = GUICtrlCreateLabel("nach Veränderung im Klickbereich prüfen. Falls Verändert = Kein Klick! ", 10, 420, 390)
+$s1 = GUICtrlCreateLabel("Shift + 1 to register left click on current mouse position! ", 10, 300, 390)
+$s2 = GUICtrlCreateLabel("Shift + 2 to register right click on current mouse position! ", 10, 320, 390)
+$s3 = GUICtrlCreateLabel("Shift + 3 to play the stack. ", 10, 340, 390)
+$s4 = GUICtrlCreateLabel("Shift + 4 to stop the stack. ", 10, 360, 390)
+$s5 = GUICtrlCreateLabel("You can safe up to 100 clicks in the stack.", 10, 380, 390)
+$s6 = GUICtrlCreateLabel("PC option activates PixelChecksum and checks for", 10, 400, 390)
+$s7 = GUICtrlCreateLabel("different pixels on click position since your safe. If pixels changed->No click! ", 10, 420, 390)
 GUICtrlSetBkColor($s1, 0xFFFFFF)
 GUICtrlSetBkColor($s2, 0xFFFFFF)
 GUICtrlSetBkColor($s3, 0xFFFFFF)
@@ -74,7 +74,7 @@ GUICtrlSetBkColor($s6, 0x00EEFF)
 GUICtrlSetBkColor($s7, 0x00EEFF)
 
 ;checker
-Global $checker = GUICtrlCreateCheckbox("Pixel Check Toggler (PC)", 10, 450)
+Global $checker = GUICtrlCreateCheckbox("Pixel Check Toggle (PC)", 10, 450)
 Global $enableChecker
 Global $pCH[100]
 
@@ -98,14 +98,14 @@ EndFunc
 
 
 ; User input area
-GUICtrlCreateLabel("Wie oft Stack wiederholen?", 10, 80)
+GUICtrlCreateLabel("Repeat stack ... times", 10, 80)
 Global $wieOft = GuiCtrlCreateInput("1", 10, 100,390, 30)
-GUICtrlCreateLabel("Wieviel Delay zwischen Klicks in ms?", 10, 130)
+GUICtrlCreateLabel("Delay between clicks?", 10, 130)
 Global $klickDelay = GuiCtrlCreateInput("10", 10, 150,390, 30)
-GUICtrlCreateLabel("Wieviel Delay zwischen Wiederholungen in ms?", 10, 180)
+GUICtrlCreateLabel("Delay between stack replays?", 10, 180)
 Global $wiederholungDelay = GuiCtrlCreateInput("10", 10, 200,390, 30)
 
-; Stack vor variables
+; Stack variables
 Global $stack[100]
 Global $index = 0
 
@@ -141,9 +141,9 @@ EndFunc
 Global $pos1 = 450
 Global $pos2 = 40
 Global $labelStack[100]
-Global $idListview = GUICtrlCreateListView("X Koord | Y Koord | Klick  ", $pos1, $pos2, 240, 402)
+Global $idListview = GUICtrlCreateListView("X Coord | Y Coord | Click  ", $pos1, $pos2, 240, 402)
 
-$lab = GUICtrlCreateLabel("Dein Stack:", $pos1, 10, 240)
+$lab = GUICtrlCreateLabel("Your stack:", $pos1, 10, 240)
 GUICtrlSetBkColor($lab, 0x00AAFF)
 GUICtrlSetColor($lab, 0x000000)
 
@@ -160,8 +160,8 @@ Func SetStatus( $msg )
 EndFunc
 
 
-;<eigentlicherBotTeil>
-Func addLinks()
+;<BotPart>
+Func addLeft()
     GUICtrlSetBkColor($s1, 0x00AAFF)
 
     $x = MouseGetPos(0)
@@ -180,7 +180,7 @@ Func addLinks()
 
     $labelStack[$index] = GUICtrlCreateListViewItem($internalArray[0] & "|" & $internalArray[1] & "|Links"  , $idListview)
     $index = $index +1
-    SetStatus("X Position " & $internalArray[0] & " Y Position "  & $internalArray[1] & " Linksklick")
+    SetStatus("X Position " & $internalArray[0] & " Y Position "  & $internalArray[1] & " left click")
 
 
 
@@ -207,9 +207,9 @@ Func addRight()
     Local $internalArray[3] = [$x, $y, 1]
     $stack[$index] = $internalArray
 
-    $labelStack[$index] = GUICtrlCreateListViewItem($internalArray[0] & "|" & $internalArray[1] & "|Rechts"  , $idListview)
+    $labelStack[$index] = GUICtrlCreateListViewItem($internalArray[0] & "|" & $internalArray[1] & "|right"  , $idListview)
     $index = $index +1
-    SetStatus("X Position " & $internalArray[0] & " Y Position "  & $internalArray[1] & " Rechtsklick")
+    SetStatus("X Position " & $internalArray[0] & " Y Position "  & $internalArray[1] & " right click")
 
     $pos1 =  $pos1
     $pos2 =  $pos2 + 20
@@ -235,7 +235,7 @@ Func repeat()
 
 	    if GUICtrlRead($checker) = $GUI_CHECKED then
 
-	        SetStatus("Klick Nummer " & $hilfeRepeat & " Wiederholung: (" & $von+1 & "/" & $bis & ") ")
+	        SetStatus("Click number " & $hilfeRepeat & " Replay number: (" & $von+1 & "/" & $bis & ") ")
 
 		if ($stack[$hilfeRepeat])[2] = 0 AND pixelCheckRunTime() = True Then
                     MouseClick("left", ($stack[$hilfeRepeat])[0], ($stack[$hilfeRepeat])[1], 1, 0)
@@ -254,7 +254,7 @@ Func repeat()
 
 
             Else
-	        SetStatus("Klick Nummer " & $hilfeRepeat & " Wiederholung: (" & $von+1 & "/" & $bis & ") ")
+	        SetStatus("Click Number " & $hilfeRepeat & " Replay number: (" & $von+1 & "/" & $bis & ") ")
 		if ($stack[$hilfeRepeat])[2] = 0 Then
 	            MouseClick("left", ($stack[$hilfeRepeat])[0], ($stack[$hilfeRepeat])[1], 1, 0)
 		    GuiCtrlSetBkColor($labelStack[$hilfeRepeat], 0x00AAFF)
