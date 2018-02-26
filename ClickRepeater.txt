@@ -3,9 +3,6 @@
 
 ;Click Repeater
 ;Author: Ferhat Tohidi Far
-;Beweggrund: Wollte jemanden im Teamspeak mehrmals anstupsen.
-;PixelCheck Funktion sollte verhindern, dass der Bot falsche Leute anstupst. Hat funktioniert.
-;Ist der Code lesbar? Ich hoffs doch.
 ;ferhat064@hotmail.de
 
 
@@ -43,17 +40,10 @@ Func Pause()
 
 
 ;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI
-;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI
-;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI
-;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI
-;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI;GUI
 
 $meinGui =  GUICreate("Click Repeater (Stack)", 700, 500)
 GUISetBkColor(0xAAAAAA)
 
-;linke Seite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite
-;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite
-;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite
 
 ;statuszeilen bereich
 $statusLabel = GUICtrlCreateLabel("Statuszeile:", 10, 10, 390, 20)
@@ -74,7 +64,7 @@ $s3 = GUICtrlCreateLabel("Shift + 3 um den Stack abzuspielen. ", 10, 340, 390)
 $s4 = GUICtrlCreateLabel("Shift + 4 um den Stack abzubrechen. ", 10, 360, 390)
 $s5 = GUICtrlCreateLabel("Momentan sind bis zu 100 Klicks speicherbar!", 10, 380, 390)
 $s6 = GUICtrlCreateLabel("Mit der PC Option kann man vor dem Klick durch PixelChecksum", 10, 400, 390)
-$s7 = GUICtrlCreateLabel("nach Ver‰nderung im Klickbereich pr¸fen. Falls Ver‰ndert = Kein Klick! ", 10, 420, 390)
+$s7 = GUICtrlCreateLabel("nach Ver√§nderung im Klickbereich pr√ºfen. Falls Ver√§ndert = Kein Klick! ", 10, 420, 390)
 GUICtrlSetBkColor($s1, 0xFFFFFF)
 GUICtrlSetBkColor($s2, 0xFFFFFF)
 GUICtrlSetBkColor($s3, 0xFFFFFF)
@@ -157,15 +147,10 @@ Func resetStack()
 EndFunc
 ;ENDE
 
-;linke Seite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite
-;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite
-;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite;linkeSeite
 
+   ;rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite);rechte seite 
 
-   ;rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite)
-   ;rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite);rechte seite (stack seite)
-
-;hilfe f¸r stackLabel pos1 x koord, pos2 y koord, labelstack sollte so groﬂ wie das stack array sein
+;hilfe f√ºr stackLabel pos1 x koord, pos2 y koord, labelstack sollte so gro√ü wie das stack array sein
 Global $pos1 = 450
 Global $pos2 = 40
 Global $labelStack[100]
