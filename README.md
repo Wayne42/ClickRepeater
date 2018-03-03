@@ -2,6 +2,8 @@
 A simple "ClickRepeater" written in the script language AutoIt.
 https://www.autoitscript.com/site/autoit/
 
+Updated to -> https://github.com/Wayne42/urAutomaton
+
 Basically it's an "Auto Clicker" with more functions. You registers mouse clicks (left or right) as you like on any location on your screen in your order of execution. 
 
 SHIFT + 1 to register a left click on your current cursor position.
