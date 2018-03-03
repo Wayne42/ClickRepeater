@@ -33,7 +33,7 @@ Func Pause()
     if $pause then
         $pause = false
 	GUICtrlSetBkColor($s4, 0xFF0000)
-	SetStatus("Gestoppt!")
+	SetStatus("stopped")
 	Sleep(100)
 	GUICtrlSetBkColor($s4, 0xFFFFFF)
     EndIf
@@ -64,7 +64,7 @@ $s3 = GUICtrlCreateLabel("Shift + 3 to play the stack. ", 10, 340, 390)
 $s4 = GUICtrlCreateLabel("Shift + 4 to stop the stack. ", 10, 360, 390)
 $s5 = GUICtrlCreateLabel("You can safe up to 100 clicks in the stack.", 10, 380, 390)
 $s6 = GUICtrlCreateLabel("PC option activates PixelChecksum and checks for different pixels", 10, 400, 390)
-$s7 = GUICtrlCreateLabel("on click position since you safed your click. If pixels changed->No click! ", 10, 420, 390)
+$s7 = GUICtrlCreateLabel("on click position since you saved your click. If pixels changed->No click! ", 10, 420, 390)
 GUICtrlSetBkColor($s1, 0xFFFFFF)
 GUICtrlSetBkColor($s2, 0xFFFFFF)
 GUICtrlSetBkColor($s3, 0xFFFFFF)
